@@ -1,9 +1,9 @@
-import { Profiler, useState } from "react";
-import { Home, Link, LogOutIcon, Menu, PersonStanding, PresentationIcon, Settings, User2, X } from "lucide-react";
+import {  useState } from "react";
+import { Home, Link, LogOutIcon, Menu, User2, X } from "lucide-react";
 import link from "@/assets/link.svg";
 import { Button } from "./ui/button";
 import { useLocation } from "react-router-dom";
-import { PresenceContext } from "framer-motion";
+
 
 const SideNavDashboard = () => {
   const [isOpen, setIsOpen] = useState(false);

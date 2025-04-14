@@ -1,7 +1,7 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { BarChart3, Link2, Network,  X } from "lucide-react";
+import { BarChart3, Link2, Network} from "lucide-react";
 
 import About from "./About";
 

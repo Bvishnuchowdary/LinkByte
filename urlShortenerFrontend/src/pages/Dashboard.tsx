@@ -80,9 +80,10 @@ export default function Dashboard() {
         const formattedData = Object.entries(response.data).map(
           ([date, clicks]) => ({
             date,
-            clicks,
+            clicks: Number(clicks), 
           })
         );
+        
         setAnalyticsData(formattedData);
       }
     } catch (error: any) {
