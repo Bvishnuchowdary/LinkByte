@@ -1,14 +1,13 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom"; // import this
+import { useLocation, Link } from "react-router-dom"; // updated import
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import link from "@/assets/link.svg";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const location = useLocation(); // get current path
+  const location = useLocation();
 
-  // Don't render the header if the route starts with /dashboard
   if (location.pathname.startsWith("/dashboard")) {
     return null;
   }
@@ -23,10 +22,13 @@ const Header = () => {
         </div>
 
         <nav className="hidden md:flex gap-6 text-gray-300">
-          <a href="/">Home</a>
-          <a href="#about">Features</a>
-
-          <a href="/contact">Contact</a>
+          <Link to="/">Home</Link>
+          <a
+          href="#about"
+        >
+          Features
+        </a>
+          <Link to="/contact">Contact</Link>
         </nav>
 
         <div className="md:hidden">
@@ -43,11 +45,11 @@ const Header = () => {
           )}
         </div>
 
-        <a href="/login" className="hidden md:block">
+        <Link to="/login" className="hidden md:block">
           <Button className="bg-purple-800 hover:bg-purple-500 w-full">
             Login
           </Button>
-        </a>
+        </Link>
       </header>
 
       {/* Mobile Menu Slide-In */}
@@ -68,30 +70,29 @@ const Header = () => {
             />
           </div>
           <nav className="flex flex-col gap-4 mt-4 w-full text-lg">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="text-white border-b border-gray-700 pb-2 w-full"
             >
               Home
-            </a>
+            </Link>
             <a
-              href="about"
-              className="text-white border-b border-gray-700 pb-2 w-full"
-            >
-              Features
-            </a>
-    
-            <a
-              href="/contact"
+            href="#about"
+            className="text-white border-b border-gray-700 pb-2 w-full"
+          >
+            Features
+          </a>
+            <Link
+              to="/contact"
               className="text-white border-b border-gray-700 pb-2 w-full"
             >
               Contact
-            </a>
-            <a href="/login">
+            </Link>
+            <Link to="/login" className="w-full">
               <Button className="bg-purple-800 hover:bg-purple-500 w-full">
                 Login
               </Button>
-            </a>
+            </Link>
           </nav>
         </div>
       </div>

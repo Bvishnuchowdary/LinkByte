@@ -1,9 +1,15 @@
-import {  useState } from "react";
-import { Home, Link, LogOutIcon, Menu, User2, X } from "lucide-react";
+import { useState } from "react";
+import {
+  Home,
+  Link as LinkIcon,
+  LogOutIcon,
+  Menu,
+  User2,
+  X,
+} from "lucide-react";
 import link from "@/assets/link.svg";
 import { Button } from "./ui/button";
-import { useLocation } from "react-router-dom";
-
+import { useLocation, Link } from "react-router-dom";
 
 const SideNavDashboard = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +23,7 @@ const SideNavDashboard = () => {
 
   const navLinks = [
     { href: "/dashboard", label: "Dashboard", icon: <Home size={18} /> },
-    { href: "/dashboard/myurls", label: "MyLinks", icon: <Link size={18} /> },
+    { href: "/dashboard/myurls", label: "MyLinks", icon: <LinkIcon size={18} /> },
     { href: "/settings", label: "profile", icon: <User2 size={18} /> },
   ];
 
@@ -54,7 +60,7 @@ const SideNavDashboard = () => {
         {/* Nav Links */}
         <nav className="space-y-4">
           {navLinks.map((item) => (
-            <a key={item.href} href={item.href}>
+            <Link key={item.href} to={item.href}>
               <div
                 className={`flex items-center space-x-2 px-3 py-2 rounded-md transition-colors ${
                   location.pathname === item.href
@@ -65,13 +71,13 @@ const SideNavDashboard = () => {
                 {item.icon}
                 <span>{item.label}</span>
               </div>
-            </a>
+            </Link>
           ))}
 
           {/* Logout Button */}
           <Button
             onClick={handleLogout}
-            className="flex w-full items-center justify-start gap-2  text-white mt-6 px-3 py-2"
+            className="flex w-full items-center justify-start gap-2 text-white mt-6 px-3 py-2"
           >
             <LogOutIcon size={20} />
             <span>Logout</span>
